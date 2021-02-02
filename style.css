@@ -1,0 +1,88 @@
+*, html {
+    margin:0;
+    padding:0;
+    font-family: 'Varela Round', sans-serif; 
+    font-weight: lighter;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #bbdfc8;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.container {
+    width: 700px;
+    margin: auto;
+    padding-top: 15px;
+    border-radius: 5px;
+    background-color: #EDE574;
+    box-shadow: 2px 2px 5px grey;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+section {
+    padding-bottom: 20px;;
+}
+
+h2 {
+    float: left;
+}
+
+input[type="text"] {
+    padding: 2px;
+    font-size: large;
+}
+
+
+.heading {
+    overflow: hidden;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.heading button {
+    float: right;
+    font-size: 15px;
+    width: 15px;
+}
+
+.task {
+    overflow: hidden;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.taskbox {
+    float: left;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.checkbox {
+    float: right;
+    font-size: 200px;
+    margin-top: 10px;
+}
+
+.taskbox {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid black;
+    width: 96%;
+}
+
+input:focus {
+    outline: none;
+}
+
+#completedSection {
+    overflow: hidden;
+}
