@@ -16,6 +16,7 @@ body {
     width: 700px;
     margin: auto;
     padding-top: 15px;
+    margin-bottom: 15px;
     border-radius: 5px;
     background-color: #EDE574;
     box-shadow: 2px 2px 5px grey;
@@ -50,8 +51,11 @@ input[type="text"] {
 
 .heading button {
     float: right;
-    font-size: 15px;
-    width: 15px;
+    font-size: 1.2em;
+    padding: 0px 5px 0px 5px;
+    background-color:  #EDE574;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 .task {

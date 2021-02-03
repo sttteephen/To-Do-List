@@ -29,12 +29,11 @@ function addTask() {
     newTaskDiv.appendChild(newCheck);
 }
 
-// move task to different section when it is checked off
+// moves task to different section when it is checked off
 function checkTask(element) {
     // get the task number from the checkboxes id
     var taskNo = element.id;
-    console.log(taskNo);
-    taskNo = taskNo.charAt(taskNo.length - 1);
+    taskNo = taskNo.substr(5);
 
     // access the relevant task div using the task number
     var taskDiv = document.getElementById("taskdiv" + taskNo);
