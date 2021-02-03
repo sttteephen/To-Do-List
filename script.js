@@ -29,7 +29,7 @@ function checkTask(element) {
 
     var newParent;
     
-    if(document.getElementById("check" + taskNo).checked == true) {
+    if(document.getElementById(`check${taskNo}`).checked == true) {
         newParent = document.getElementById("completedSection");
     } else {
         newParent = document.getElementById("tasksSection");

@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <script src="script.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
 
-        <header>
-            <h1>To Do List</h1>
-        </header>
+            <header>
+                <h1>To Do List</h1>
+            </header>
 
-        <section id="tasksSection">
-        
-            <div class="heading">
-                <h2>To Do</h2>
-                <button type="button" onclick="addTask()">+</button>
-            </div>
+            <section id="tasksSection">
+            
+                <div class="heading">
+                    <h2>To Do</h2>
+                    <button type="button" onclick="addTask()">+</button>
+                </div>
 
-            <div class="task" id="taskdiv1">
-                <input type="text" name="task1" class="taskbox" id="task1">
-                <input type="checkbox" class="checkbox" id="check1" onchange="check`Task(this)">
-            </div>
+                <div class="task" id="taskdiv1">
+                    <input type="text" name="task1" class="taskbox" id="task1">
+                    <input type="checkbox" class="checkbox" id="check1" onchange="checkTask(this)">
+                </div>
 
-        </section>
+            </section>
 
-        <section id="completedSection">
+            <section id="completedSection">
 
-            <div class="heading">
-                <h2>Completed</h2>
-            </div>
+                <div class="heading">
+                    <h2>Completed</h2>
+                </div>
 
-        </section>
+            </section>
 
-    </div>
-</body>
+        </div>
+    </body>
 </html>
