@@ -1,5 +1,6 @@
 var taskCount = 1;
 
+
 // adds a new task div when + button is pressed
 function addTask() {
     taskCount++;
@@ -19,6 +20,15 @@ function addTask() {
     newText.setAttribute("id", `task${taskCount}`);
     newTaskDiv.appendChild(newText);
     
+    // create new button, add text, add it to the class and give it an id
+    var newCross = document.createElement("button"); 
+    newCross.innerHTML = "&#10005;";
+    newCross.classList.add("cross");
+    newCross.setAttribute("id", `cross${taskCount}`);
+    newCross.addEventListener('click', function() {deleteTask(this)}, false);
+    newTaskDiv.appendChild(newCross);
+
+
     // create new checkbox, add it to the class, give it an id
     var newCheck = document.createElement("INPUT");
     newCheck.setAttribute("type", "checkbox");
@@ -29,22 +39,37 @@ function addTask() {
     newTaskDiv.appendChild(newCheck);
 }
 
+
 // moves task to different section when it is checked off
 function checkTask(element) {
     // get the task number from the checkboxes id
     var taskNo = element.id;
     taskNo = taskNo.substr(5);
 
-    // access the relevant task div using the task number
+    // access the relevant task div and cross button using the task number
     var taskDiv = document.getElementById("taskdiv" + taskNo);
+    var crossBtn = document.getElementById("cross" + taskNo);
 
     var newParent;
     
     // decide where to move task div based on state of checkbox
     if(document.getElementById(`check${taskNo}`).checked == true) {
         newParent = document.getElementById("completedSection");
+        crossBtn.style.visibility = "visible";
     } else {
         newParent = document.getElementById("tasksSection");
+        crossBtn.style.visibility = "hidden";
     }
     newParent.appendChild(taskDiv);
+}
+
+
+function deleteTask(element) {
+    var taskNo = element.id;
+    taskNo = taskNo.substr(5);
+
+    // access the relevant task div using the task number
+    var taskDiv = document.getElementById("taskdiv" + taskNo);
+
+    taskDiv.remove();
 }

@@ -60,27 +60,34 @@ input[type="text"] {
 
 .task {
     overflow: hidden;
-    padding-left: 30px;
+    padding-left: 10px;
     padding-right: 10px;
 }
 
 .taskbox {
-    float: left;
+    float: right;
     overflow: hidden;
     margin-bottom: 10px;
-}
-
-.checkbox {
-    float: right;
-    font-size: 200px;
-    margin-top: 10px;
-}
-
-.taskbox {
     background: transparent;
     border: 0;
     border-bottom: 1px solid black;
-    width: 96%;
+    width: 92%;
+}
+
+.checkbox {
+    float: left;
+    font-size: 200px;
+    margin-top: 10px;
+    margin-left: 6px;
+}
+
+.cross {
+    float: left;
+    border: none;
+    background: none;
+    margin-top: 7px;
+    font-size: 20px;
+    visibility: hidden;
 }
 
 input:focus {
