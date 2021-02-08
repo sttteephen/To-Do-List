@@ -104,3 +104,17 @@ input:focus {
         width: 98%;
     }
 }
+
+@media (max-width: 600px) {
+    .container {
+        width: 98%;
+    }
+
+    .taskbox {
+        width: 90%;
+    }
+
+    .checkbox {
+        margin-left: 3px;
+    }
+}
