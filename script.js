@@ -1,5 +1,3 @@
-var taskCount = 0;
-
 // adds a new task div when + button is pressed
 function addTask() {
     
@@ -76,6 +74,7 @@ function deleteTask(element) {
 
 function saveTasks() {
     localStorage.clear();
+
     var tasks = document.getElementsByClassName("task");
 
     for(let i = 0; i < tasks.length; i++) {
@@ -84,11 +83,28 @@ function saveTasks() {
 
         var taskText = document.getElementById("task" + taskIdNo);
         var taskCheck = document.getElementById("check" + taskIdNo);  
-        
+
         if(taskCheck.checked == true) {
             localStorage.setItem(taskText.value, "completed")
         } else {
             localStorage.setItem(taskText.value, "uncompleted")
         }
+    }
+}
+
+
+var taskCount = 0;
+
+for (let i=0; i < localStorage.length; i++) {
+    addTask();
+
+    var taskText = document.getElementById(`task${i}`);
+    var storageKey = localStorage.key(i);
+    taskText.value = storageKey;
+
+    if (localStorage.getItem(storageKey) == "completed") {
+        var taskCheck = document.getElementById(`check${i}`);
+        taskCheck.checked = true;
+        checkTask(taskCheck);
     }
 }
