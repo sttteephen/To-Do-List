@@ -1,120 +1,102 @@
-*, html {
-    margin:0;
-    padding:0;
-    font-family: 'Varela Round', sans-serif; 
-    font-weight: lighter;
-    box-sizing: border-box;
+*,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Varela Round", sans-serif;
+  font-weight: lighter;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #0D78CC;
-    text-align: center;
-    padding-top: 10px;
+  background-color: #0D78CC;
+  padding-top: 10px;
 }
 
 .container {
-    width: 700px;
-    margin: auto;
-    padding-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    background-color: #FBEE95;
-    box-shadow: 3px 3px 5px #515B65;
-}
-
-header {
-    margin-bottom: 20px;
-}
-
-section {
-    padding-bottom: 20px;
+  margin: auto;
+  padding-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #FBEE95;
+  box-shadow: 3px 3px 5px #515B65;
 }
 
 h2 {
-    float: left;
+  float: left;
 }
 
-input[type="text"] {
-    padding: 2px;
-    font-size: large;
+input[type=text] {
+  padding: 2px;
+  font-size: large;
 }
-
 
 .heading {
-    overflow: hidden;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid black;
-}
-
-.heading button {
-    float: right;
-    font-size: 1.2em;
-    padding: 0px 5px 0px 5px;
-    margin-left: 5px;
-    background-color:  #FBEE95;
-    border: 2px solid black;
-    border-radius: 3px;
+  overflow: hidden;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
 }
 
 .task {
-    overflow: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .taskbox {
-    float: right;
-    overflow: hidden;
-    margin-bottom: 10px;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid black;
-    width: 92%;
+  float: right;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid black;
+  width: 92%;
 }
 
 .checkbox {
-    float: left;
-    font-size: 200px;
-    margin-top: 10px;
-    margin-left: 6px;
+  float: left;
+  font-size: 200px;
+  margin-top: 10px;
+  margin-left: 6px;
 }
 
 .cross {
-    float: left;
-    border: none;
-    background: none;
-    margin-top: 7px;
-    font-size: 20px;
-    visibility: hidden;
+  float: left;
+  border: none;
+  background: none;
+  margin-top: 7px;
+  font-size: 20px;
+  visibility: hidden;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 #completedSection {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 @media (max-width: 700px) {
-    .container {
-        width: 98%;
-    }
+  .container {
+    width: 98%;
+  }
 }
 
 @media (max-width: 600px) {
-    .container {
-        width: 100%;
-    }
+  .container {
+    width: 100%;
+  }
 
-    .taskbox {
-        width: 90%;
-    }
+  .taskbox {
+    width: 90%;
+  }
 
-    .checkbox {
-        margin-left: 3px;
-    }
+  .checkbox {
+    margin-left: 3px;
+  }
 }
+
+/*# sourceMappingURL=style.css.map */

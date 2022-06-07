@@ -1,42 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com"> 
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-        <title>To Do List</title>
-        <title>Document</title>
-    </head>
-    <body>
-        <div class="container">
 
-            <header>
-                <h1>To Do List</h1>
-            </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>To Do List</title>
+    <title>Document</title>
+</head>
 
-            <section id="tasksSection">
-            
-                <div class="heading">
-                    <h2>To Do</h2>
-                    <button type="button" onclick="saveTasks()"> Save </button>
-                    <button type="button" onclick="addTask()"> + </button>
-                </div>
+<body>
+    <div class="container">
+
+        <header class="mb-4 border-bottom border-dark text-center">
+            <h1>To Do List</h1>
+        </header>
+
+        <section id="tasksSection" class="pb-4">
 
 
-            </section>
+            <div class="input-group mb-3 px-3">
+                <input type="text" class="form-control px-2" placeholder="Enter new task" id="taskInput" maxlength="50">
+                <button class="btn btn-outline-primary" type="button" onclick="addTask()">Add Task</button>
+                <button class="btn btn-outline-primary px-4" type="button" onclick="saveTasks()">Save</button>
+            </div>
 
-            <section id="completedSection">
-                
-                <div class="heading">
-                    <h2>Completed</h2>
-                </div>
+            <div class="list-group px-3" id="taskList">
 
-            </section>
+                <!--
+                <label class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input class="form-check-input me-1 justify-content-between" type="checkbox" value="">
+                        First checkbox
+                    </div>
 
-        </div>
-        
-        <script src="script.js"></script>
-    </body>
+                    <button class="invisible btn" type="button" onclick="deleteTask(this)">
+                        <i class="fas fa-trash visible"></i>
+                    </button>
+                </label>
+
+                <label class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Second checkbox
+                    </div>
+                </label>
+                -->
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
