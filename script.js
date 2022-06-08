@@ -35,6 +35,7 @@ function addTask(taskStr = undefined, completed = undefined) {
         // check if this task has been completed to decided where to place in list, start or end
         if (completed == true) {
             newCheckBox.checked = true; // tick the box if completed
+            addDeleteBtn(newTaskLabel)
             document.getElementById("taskList").appendChild(newTaskLabel)
         } else {
             document.getElementById("taskList").prepend(newTaskLabel)
@@ -43,6 +44,20 @@ function addTask(taskStr = undefined, completed = undefined) {
         // reset the task input box
         document.getElementById("taskInput").value = ""
     }
+}
+
+function addDeleteBtn(taskLabel) {
+    // create the button and icon to add to the screen, adding relevant classes
+    var newBtn = document.createElement("button");
+    newBtn.classList.add("invisible")
+    newBtn.addEventListener('click', function () { deleteTask(this) }, false);
+
+    var newIcon = document.createElement("i");
+    newIcon.classList.add("fas", "fa-trash", "visible");
+
+    // add the button and icon to the screen
+    taskLabel.appendChild(newBtn);
+    newBtn.appendChild(newIcon);
 }
 
 
@@ -55,17 +70,7 @@ function checkTask(element) {
     // check if the item has been checked or unchecked
     if (element.checked == true) {
 
-        // create the button and icon to add to the screen, adding relevant classes
-        var newBtn = document.createElement("button");
-        newBtn.classList.add("invisible")
-        newBtn.addEventListener('click', function () { deleteTask(this) }, false);
-
-        var newIcon = document.createElement("i");
-        newIcon.classList.add("fas", "fa-trash", "visible");
-
-        // add the button and icon to the screen
-        checkedLabel.appendChild(newBtn);
-        newBtn.appendChild(newIcon);
+        addDeleteBtn(checkedLabel)
 
         // move the item to the bottom of the list
         document.getElementById("taskList").appendChild(checkedLabel)
