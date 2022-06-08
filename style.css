@@ -13,6 +13,7 @@ body {
 }
 
 .container {
+  width: 700px;
   margin: auto;
   padding-top: 15px;
   margin-bottom: 15px;
@@ -81,7 +82,7 @@ input:focus {
 
 @media (max-width: 700px) {
   .container {
-    width: 98%;
+    width: 100%;
   }
 }
 

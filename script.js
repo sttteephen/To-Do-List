@@ -1,9 +1,15 @@
-// adds a new task element to screen when 'Add Task' button is pressed
-function addTask() {
+// adds a new task item to screen when 'Add Task' button is pressed
+function addTask(taskStr = undefined, completed = undefined) {
 
-    // get current text from task input box
-    var taskInputText = document.getElementById("taskInput").value
+    // get tasks text from the input box on screen or from function argument if a value has been passed
+    var taskInputText = ""
+    if (taskStr == undefined) {
+        taskInputText = document.getElementById("taskInput").value
+    } else {
+        taskInputText = taskStr
+    }
 
+    // check input box on screen wasn't empty
     if (taskInputText != "") {
 
         // create new label element to hold new task and add classes
@@ -12,12 +18,13 @@ function addTask() {
 
         // create div to hold the input element and place it inside the new label
         var newTaskDiv = document.createElement("div")
+        newTaskDiv.classList.add("taskDiv")
         newTaskLabel.appendChild(newTaskDiv)
 
         // create checkbox element, add classes and append to div
         var newCheckBox = document.createElement("INPUT");
         newCheckBox.setAttribute("type", "checkbox");
-        newCheckBox.classList.add("form-check-input", "me-2", "justify-content-between")
+        newCheckBox.classList.add("form-check-input", "me-2", "justify-content-between", "taskCheckBox")
         newCheckBox.addEventListener('click', function () { checkTask(this) }, false);
         newTaskDiv.appendChild(newCheckBox)
 
@@ -25,53 +32,21 @@ function addTask() {
         var textNode = document.createTextNode(taskInputText);
         newTaskDiv.appendChild(textNode)
 
-        // add the new label with holds the checkbox and task string to the list
-        document.getElementById("taskList").prepend(newTaskLabel)
+        // check if this task has been completed to decided where to place in list, start or end
+        if (completed == true) {
+            newCheckBox.checked = true; // tick the box if completed
+            document.getElementById("taskList").appendChild(newTaskLabel)
+        } else {
+            document.getElementById("taskList").prepend(newTaskLabel)
+        }
 
         // reset the task input box
         document.getElementById("taskInput").value = ""
     }
-    /*
-    // create new div, add it to the class and give it an id
-    var newTaskDiv = document.createElement("div");
-    newTaskDiv.classList.add("task");
-    newTaskDiv.setAttribute("id", `taskdiv${taskCount}`);
-    // get tasks section from page and append new task div
-    var tasksSection = document.getElementById("tasksSection");
-    tasksSection.appendChild(newTaskDiv);
-
-    // create new text input, add it to the class and give it an id
-    var newText = document.createElement("INPUT");
-    newText.setAttribute("type", "text");
-    newText.classList.add("taskbox");
-    newText.setAttribute("id", `task${taskCount}`);
-    newText.value = taskInputText
-    newTaskDiv.appendChild(newText);
-
-    // create new button, add text, add it to the class and give it an id
-    var newCross = document.createElement("button");
-    newCross.innerHTML = "&#10005;";
-    newCross.classList.add("cross");
-    newCross.setAttribute("id", `cross${taskCount}`);
-    newCross.addEventListener('click', function () { deleteTask(this) }, false);
-    newTaskDiv.appendChild(newCross);
-
-
-    // create new checkbox, add it to the class, give it an id
-    var newCheck = document.createElement("INPUT");
-    newCheck.setAttribute("type", "checkbox");
-    newCheck.classList.add("checkbox");
-    newCheck.setAttribute("id", `check${taskCount}`);
-    // add function call to new checkbox
-    newCheck.addEventListener('click', function () { checkTask(this) }, false);
-    newTaskDiv.appendChild(newCheck);
-
-    taskCount++;
-    */
 }
 
 
-// toggle visibility of delete button and change position of list item depending on status of check box
+// toggle visibility of delete button and change position of list item depending on completion status
 function checkTask(element) {
 
     // get the parent label element of the checked item
@@ -102,78 +77,50 @@ function checkTask(element) {
         // move the list item to top of the list
         document.getElementById("taskList").prepend(checkedLabel)
     }
-
-    /*
-    // get the task number from the checkboxes id
-    var taskNo = element.id;
-    taskNo = taskNo.substr(5);
- 
-    // access the relevant task div and cross button using the task number
-    var taskDiv = document.getElementById("taskdiv" + taskNo);
-    var crossBtn = document.getElementById("cross" + taskNo);
- 
-    var newParent;
- 
-    // decide where to move task div and change visibiliy of cross button based on state of checkbox 
-    if (document.getElementById(`check${taskNo}`).checked == true) {
-        newParent = document.getElementById("completedSection");
-        crossBtn.style.visibility = "visible";
-    } else {
-        newParent = document.getElementById("tasksSection");
-        crossBtn.style.visibility = "hidden";
-    }
-    newParent.appendChild(taskDiv);
-    */
 }
 
-
+// remove a task from the screen when a rubbish button is clicked
 function deleteTask(element) {
-    console.log(element)
     element.parentElement.remove()
-    /*
-    var taskNo = element.id;
-    taskNo = taskNo.substr(5);
-
-    // get the relevant task div using the task number and remove from screen
-    var taskDiv = document.getElementById("taskdiv" + taskNo);
-    taskDiv.remove();
-    */
 }
 
-
+// save the tasks currentley on screen and their status to local storage
 function saveTasks() {
     localStorage.clear();
 
-    var tasks = document.getElementsByClassName("task");
+    // get lists of all the task divs and the checkboxes on screen
+    var taskDivs = document.getElementsByClassName("taskDiv");
+    var tasksCheckBoxes = document.getElementsByClassName("taskCheckBox");
 
-    for (let i = 0; i < tasks.length; i++) {
-        var taskDiv = tasks[i];
-        var taskIdNo = taskDiv.id.substr(7);
+    // save each task using the text content of div as the key with a value indicating the task status
+    for (let i = 0; i < taskDivs.length; i++) {
 
-        var taskText = document.getElementById("task" + taskIdNo);
-        var taskCheck = document.getElementById("check" + taskIdNo);
+        // prepend key with 'TASK_' to identify relevant local storage items on page loading
+        var taskKey = "TASK_".concat(taskDivs[i].textContent)
 
-        if (taskCheck.checked == true) {
-            localStorage.setItem(taskText.value, "completed")
+        if (tasksCheckBoxes[i].checked == true) {
+            localStorage.setItem(taskKey, "completed")
         } else {
-            localStorage.setItem(taskText.value, "uncompleted")
+            localStorage.setItem(taskKey, "uncompleted")
         }
     }
 }
 
+// on page load populate the list with items from local storage
+function loadTasks() {
 
-var taskCount = 0;
-
-for (let i = 0; i < localStorage.length; i++) {
-    addTask();
-
-    var taskText = document.getElementById(`task${i}`);
-    var storageKey = localStorage.key(i);
-    taskText.value = storageKey;
-
-    if (localStorage.getItem(storageKey) == "completed") {
-        var taskCheck = document.getElementById(`check${i}`);
-        taskCheck.checked = true;
-        checkTask(taskCheck);
+    for (let i = 0; i < localStorage.length; i++) {
+        // check item key begins with 'TASK_'
+        var storageKey = localStorage.key(i)
+        if (localStorage.key(i).slice(0, 5) == "TASK_") {
+            // if so check if completed and pass relevant values to addTask()
+            if (localStorage.getItem(storageKey) == "completed") {
+                addTask(localStorage.key(i).slice(5), true)
+            } else {
+                addTask(localStorage.key(i).slice(5))
+            }
+        }
     }
 }
+
+loadTasks()
