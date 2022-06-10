@@ -1,4 +1,4 @@
-$background_colour: #0D78CC
+$background_colour: #316CF4
 
 *, html
     margin: 0
@@ -9,83 +9,25 @@ $background_colour: #0D78CC
 
 body
     background-color: $background_colour
-    text-align: center
     padding-top: 10px
 
-header
-    margin-bottom: 20px
-
-section
-    padding-bottom: 20px
-
-h2
-    float: left
-
-input[type="text"]
-    padding: 2px
-    font-size: large
-
-.heading
-    overflow: hidden
-    padding: 5px
-    padding-left: 20px
-    padding-right: 10px
-    margin-bottom: 10px
-    border-bottom: 1px solid black
-
-.heading button
-    float: right
-    font-size: 1.2em
-    padding: 0px 5px 0px 5px
-    margin-left: 5px
+.container
+    width: 700px
+    padding-top: 15px
+    margin-bottom: 15px
+    border-radius: 5px
     background-color: #FBEE95
-    border: 2px solid black
-    border-radius: 3px
-
-.task
-    overflow: hidden
-    padding-left: 10px
-    padding-right: 10px
-
-.taskbox
-    float: right
-    overflow: hidden
-    margin-bottom: 10px
-    background: transparent
-    border: 0
-    border-bottom: 1px solid black
-    width: 92%
-
-.checkbox
-    float: left
-    font-size: 200px
-    margin-top: 10px
-    margin-left: 6px
-
-.cross
-    float: left
-    border: none
-    background: none
-    margin-top: 7px
-    font-size: 20px
-    visibility: hidden
+    box-shadow: 3px 3px 5px #515B65
 
 input:focus
     outline: none
 
-#completedSection
-    overflow: hidden
+i:hover
+    color: $background_colour
 
 @media (max-width: 700px)
     .container
         width: 98%
 
-@media (max-width: 600px)
-    .container
-        width: 100%
-
-    .taskbox
-        width: 90%
-
-    .checkbox
-        margin-left: 3px
+    body
+        padding-top: 0

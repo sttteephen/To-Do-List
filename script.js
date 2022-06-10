@@ -89,6 +89,13 @@ function deleteTask(element) {
     element.parentElement.remove()
 }
 
+function clearList() {
+    var taskLabels = document.getElementsByClassName("list-group-item");
+    for (let i = 0; i < taskLabels.length; i++) {
+        deleteTask(taskLabels[i])
+    }
+}
+
 // save the tasks currentley on screen and their status to local storage
 function saveTasks() {
     localStorage.clear();
