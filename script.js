@@ -1,6 +1,7 @@
 // adds a new task item to screen when 'Add Task' button is pressed
 function addTask(taskStr = undefined, completed = undefined) {
 
+    console.log("adding task")
     // get tasks text from the input box on screen or from function argument if a value has been passed
     var taskInputText = ""
     if (taskStr == undefined) {
@@ -86,16 +87,17 @@ function checkTask(element) {
 
 // remove a task from the screen when a rubbish button is clicked
 function deleteTask(element) {
+    console.log("deleting - " + element)
     element.parentElement.remove()
 }
 
 // removes all tasks from the screen
 function clearList() {
-    // get a list of all the task labels 
-    var taskLabels = document.getElementsByClassName("list-group-item");
-    for (let i = 0; i < taskLabels.length; i++) {
-        // call deleteTask with each label
-        deleteTask(taskLabels[i])
+    //console.log("clearing list")
+    // iterate over and remove each of the 'taskList' elements children
+    var taskList = document.getElementById("taskList");
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.firstChild)
     }
 }
 
