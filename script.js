@@ -89,9 +89,12 @@ function deleteTask(element) {
     element.parentElement.remove()
 }
 
+// removes all tasks from the screen
 function clearList() {
+    // get a list of all the task labels 
     var taskLabels = document.getElementsByClassName("list-group-item");
     for (let i = 0; i < taskLabels.length; i++) {
+        // call deleteTask with each label
         deleteTask(taskLabels[i])
     }
 }
